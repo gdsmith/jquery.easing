@@ -30,3 +30,7 @@ Good walkthrough on how to remove from WP ACCORDION SLIDER http://serpastian.blo
 ## Impulse theme users:
 
 http://themeforest.net/item/impulse-clean-magazine-theme/discussion/1500221
+
+## Zen Cart users:
+
+http://www.zen-cart.com/showthread.php?207719-quot-Please-stop-hotlinking-my-easing-script-quot-Warning&p=1199906#post1199906
