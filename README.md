@@ -23,3 +23,6 @@ If you have no idea why your site is hotlinking my script it's likely because a 
 Many thanks    
 George
 
+## WP ACCORDION SLIDER users:
+
+Good walkthrough on how to remove from WP ACCORDION SLIDER http://serpastian.blogspot.co.uk/2013/04/please-stop-hotlinking-my-easing-script.html might help other wordpress users as well.
