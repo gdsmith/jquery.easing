@@ -4,6 +4,7 @@
   "description": "A jQuery plugin from GSGD to give advanced easing options.",
   "version": "1.3",
   "homepage": "http://gsgd.co.uk/sandbox/jquery/easing/",
+  "main": "jquery.easing.1.3.js",
   "author": {
     "name": "George McGinley Smith",
     "email": "george@gsgd.co.uk",
