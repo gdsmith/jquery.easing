@@ -2,7 +2,7 @@
   "name": "jquery.easing",
   "title": "jQuery Easing Plugin",
   "description": "A jQuery plugin from GSGD to give advanced easing options.",
-  "version": "1.3",
+  "version": "1.3.2",
   "homepage": "http://gsgd.co.uk/sandbox/jquery/easing/",
   "author": {
     "name": "George McGinley Smith",
