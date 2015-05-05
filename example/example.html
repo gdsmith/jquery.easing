@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="../jquery.easing.js"></script>
+  <script type="text/javascript" src="../jquery.easing.compatibility.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      var boing = function() {
+        $('#boxing')
+          .animate({marginLeft: '50px'  }, 1000, 'easeOutElastic')
+          .animate({marginTop:  '50px'  }, 1000, 'easeOutBounce')
+          .animate({marginLeft: '-150px'}, 1000, 'easeOutQuad')
+          .animate({marginTop:  '-150px'}, 1000, 'easeInOutBack');
+      };
+      var squish = function() {
+      $('#box')
+        .animate({height: '100px', marginTop: '0px',  width: '50px' }, 1000, 'easeOutElastic')
+        .animate({height: '50px' , marginTop: '25px', width: '50px' }, 1000, 'easeOutBounce')
+        .animate({height: '50px' , marginTop: '25px', width: '100px'}, 1000, 'easeOutQuad')
+        .animate({height:'100px' , marginTop: '0px',  width: '100px'}, 1000, 'easeInOutBack');
+      }
+      setInterval(boing, 4000);
+      setInterval(squish, 4000);
+      setTimeout(function() {
+        boing();
+        squish();
+      }, 500);
+    })
+  </script>
+  <style type="text/css" media="screen">
+  #boxing {
+    height:100px;
+    width:100px;
+    position:absolute;
+    top:50%;left:50%;
+    margin-left:-150px;
+    margin-top:-150px;
+  }
+  #box {
+    height:100px;
+    width:100px;
+    background:#000;
+    margin:0 auto;
+  }
+  </style>
+</head>
+<body>
+  <div id="boxing"><div id="box"></div></div>
+</body>
+</html>
