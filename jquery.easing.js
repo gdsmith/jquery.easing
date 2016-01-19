@@ -9,11 +9,11 @@
 // t: current time, b: begInnIng value, c: change In value, d: duration
 (function (factory) {
 	if (typeof define === "function" && define.amd) {
-		define(function () {
-			return factory;
+		define(['jquery'], function ($) {
+			return factory($);
 		});
 	} else if (typeof module === "object" && typeof module.exports === "object") {
-		exports = factory;
+		exports = factory(require('jquery'));
 	} else {
 		factory(jQuery);
 	}
