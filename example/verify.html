@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify results agains Easing 1.3 plugin</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.js"></script>
+  <script>
+  var origEasing = $.extend(true, {}, $.easing);
+  </script>
+   <script type="text/javascript" src="../jquery.easing.js"></script>
+  <script>
+  var newEasing = $.extend(true, {}, $.easing);
+  </script>
+  <!-- loaded last because it refers back to the $.easing fns it defines  -->
+ <script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
+  <script>
+  var oldEasing = $.easing;
+  </script>
+  <style type="text/css" media="screen">
+  #bounds {
+	width: 250px;
+	height: 250px;
+	border: 1px solid #888;
+  }
+  #box {
+	height: 50px;
+	width: 50px;
+	background: black;
+  }
+  </style>
+
+  <script type="text/javascript">
+    $(function() {
+		var times = [
+				0, 0.09, 0.15, 0.24, 0.37, 0.43, 0.50,
+				0.58, 0.64, 0.76, 0.89, 0.92, 0.98, 1
+			];
+		
+		$.each( oldEasing, function( name ) {
+			var oldfn = oldEasing[ name ],
+				newfn = newEasing[ name ];
+
+			if ( typeof oldfn !== "function" || name === "swing" || name === "jswing" ) {
+				return;
+			}
+			$( "#results").append( "<br />--- Testing " + name + " " );
+			try {
+				times.forEach( function( time ) {
+					var ov = oldfn(time, time*1000, 0, 1, 1000),
+						nv = newfn(time),
+						diff = Math.abs(ov - nv);
+					if (  Number.isNaN(diff) || diff > 0.001 ) {
+						$( "#results").append("<br />at " + time + ": old " + ov + " new " + nv  );
+					}
+				});
+				$( "#results").append( "Done" );
+			} catch ( err ) {
+				$( "#results").append( err );
+			}
+		});
+	});
+  </script>
+</head>
+<body>
+<h1>Easing function comparison</h1>
+<p id=results></p>
+
+
+</body>
+</html>
