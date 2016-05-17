@@ -20,12 +20,7 @@
   "dependencies": {
     "jquery": ">= 1.3.0"
   },
-  "licenses": [
-    {
-      "type": "BSD",
-      "url": "https://raw.githubusercontent.com/gdsmith/jquery.easing/master/LICENSE"
-    }
-  ],
+  "license": "BSD-3-Clause",
   "ignore": [
     "**/.*",
     "example"
