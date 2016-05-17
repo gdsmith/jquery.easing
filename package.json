@@ -23,8 +23,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "peerDependencies": {
-    "jquery": ">= 1.3.0"
+  "devDependencies": {
+    "jquery": ">=1.3.0"
   },
   "keywords": [
     "jquery-plugin",
