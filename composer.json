@@ -1,6 +1,5 @@
 {
-  "name": "jquery.easing",
-  "version": "1.3.2",
+  "name": "gdsmith/jquery.easing",
   "homepage": "http://gsgd.co.uk/sandbox/jquery/easing/",
   "description": "A jQuery plugin from GSGD to give advanced easing options",
   "author": {
