@@ -14,7 +14,6 @@
   "bugs": {
     "url": "https://github.com/gdsmith/jquery.easing/issues"
   },
-  "homepage": "https://github.com/gdsmith/jquery.easing",
   "main": "jquery.easing.js",
   "directories": {
     "example": "example"
