@@ -1,5 +1,5 @@
 /*
- * jQuery Easing v1.4.0 - http://gsgd.co.uk/sandbox/jquery/easing/
+ * jQuery Easing v1.4.1 - http://gsgd.co.uk/sandbox/jquery/easing/
  * Open source under the BSD License.
  * Copyright © 2008 George McGinley Smith
  * All rights reserved.
@@ -19,7 +19,7 @@
 })(function($){
 
 // Preserve the original jQuery "swing" easing as "jswing"
-$.easing['jswing'] = $.easing['swing'];
+$.easing.jswing = $.easing.swing;
 
 var pow = Math.pow,
 	sqrt = Math.sqrt,
@@ -39,11 +39,11 @@ function bounceOut(x) {
 	if ( x < 1/d1 ) {
 		return n1*x*x;
 	} else if ( x < 2/d1 ) {
-		return n1*(x-=(1.5/d1))*x + .75;
+		return n1*(x-=(1.5/d1))*x + 0.75;
 	} else if ( x < 2.5/d1 ) {
-		return n1*(x-=(2.25/d1))*x + .9375;
+		return n1*(x-=(2.25/d1))*x + 0.9375;
 	} else {
-		return n1*(x-=(2.625/d1))*x + .984375;
+		return n1*(x-=(2.625/d1))*x + 0.984375;
 	}
 }
 
