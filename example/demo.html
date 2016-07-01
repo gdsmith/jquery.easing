@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo of all easing styles</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.3.js"></script>
+  <script type="text/javascript" src="../jquery.easing.js"></script>
+
+  <style type="text/css" media="screen">
+  #bounds {
+	width: 250px;
+	height: 250px;
+	border: 1px solid #888;
+  }
+  #box {
+	height: 50px;
+	width: 50px;
+	background: black;
+  }
+  </style>
+
+  <script type="text/javascript">
+    $(function() {
+		var easings = $.map( $.easing, function( fn, key ) {
+				return jQuery.isFunction( fn ) ?
+					"<option value='" + key + "'>" + key + "</option>" :
+					null;
+			}),
+			current = 0,
+			positions = [
+				{
+					marginTop: "0px",
+					marginLeft: "0px"
+				}, {
+					marginTop: "200px",
+					marginLeft: "200px"
+				}
+			];
+		
+		$( "#easing" ).html( easings );
+		$( "#run" ).on( "click", function() {
+			var duration = +$( "#duration" ).val(),
+				easing = $( "#easing" ).val(),
+				start = Date.now();
+
+			if ( Number.isNaN( duration ) ) {
+				duration = 1000;
+				$( "#duration" ).val( duration );
+			}
+
+			$( "#status" ).text( "Animating..." );
+			
+			// Alternate positions
+			current = current ^ 1;
+			$( "#box" ).animate( positions[current], duration, easing,
+				function() {
+					$( "#status" ).text( "Done (" + (Date.now() - start)/1000	 + " seconds)" );
+				}
+			);
+		});
+    });
+  </script>
+</head>
+<body>
+<h1>Demo of all easing styles</h1>
+<p id=status>Choose an easing method and press Run</p>
+<p>
+	<label for=easing>Easing: </label>
+	<select id=easing></select><br />
+	<label for=duration> Duration (seconds): </label>
+	<input type=text id=duration size=10 value=1000 /><br />
+	<button id=run>Run</button>
+</p>
+<div id=bounds>
+  <div id="box"></div>
+</div>
+
+</body>
+</html>
