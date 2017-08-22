@@ -21,7 +21,7 @@
   },
   "scripts": {
     "test": "echo \"Use tests in the examples directory\" && exit 1",
-    "uglify": "uglifyjs jquery.easing.js -o jquery.easing.min.js"
+    "build": "uglifyjs jquery.easing.js --compress --mangle -o jquery.easing.min.js"
   },
   "devDependencies": {
     "jquery": ">=1.3.0",

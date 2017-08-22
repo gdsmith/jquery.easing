@@ -23,4 +23,4 @@ define(['jquery', 'jquery.easing'], function (jQuery, easing) {
 * `npm install`
 * Make changes
 * Test against files in `/examples`
-* Build minified version with `npm run uglify -- --compress --mangle`
+* Build minified version with `npm run build`
