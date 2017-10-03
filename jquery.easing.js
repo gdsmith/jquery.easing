@@ -19,7 +19,9 @@
 })(function($){
 
 // Preserve the original jQuery "swing" easing as "jswing"
-$.easing['jswing'] = $.easing['swing'];
+if (typeof $.easing !== 'undefined') {
+	$.easing['jswing'] = $.easing['swing'];
+}
 
 var pow = Math.pow,
 	sqrt = Math.sqrt,
