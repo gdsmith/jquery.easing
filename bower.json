@@ -1,7 +1,7 @@
 {
   "name": "jquery.easing",
   "main": "jquery.easing.js",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "homepage": "https://github.com/gdsmith/jquery.easing",
   "authors": [
     "George McGinley Smith <george@gsgd.co.uk>"
