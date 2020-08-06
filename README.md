@@ -8,19 +8,19 @@ For CDN please use CloudFlare [`https://cdnjs.cloudflare.com/ajax/libs/jquery-ea
 
 ```js
 // CommonJS
-var jQuery = require('jquery');
+const jQuery = require('jquery');
 require('jquery.easing')(jQuery);
 
 // AMD
 define(['jquery', 'jquery.easing'], function (jQuery, easing) {
-  easing(jQuery)
-})
+	easing(jQuery);
+});
 ```
 
 # Building and testing
 
-* Clone the repo
-* `npm install`
-* Make changes
-* Test against files in `/examples`
-* Build minified version with `npm run build`
+- Clone the repo
+- `npm install`
+- Make changes
+- Test against files in `/examples`
+- Build minified version with `npm run build`
