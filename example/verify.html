@@ -8,19 +8,18 @@
 	<script src="../node_modules/jquery/dist/jquery.js"></script>
 	<script>
 	/* globals $ */
-	/* eslint-disable no-unused-vars */
-	var origEasing = $.extend(true, {}, $.easing);
+	window.origEasing = $.extend(true, {}, $.easing);
 	</script>
  	<script src="../jquery.easing.js"></script>
 	<script>
 	/* globals $ */
-	var newEasing = $.extend(true, {}, $.easing);
+	window.newEasing = $.extend(true, {}, $.easing);
 	</script>
 	<!-- loaded last because it refers back to the $.easing fns it defines	-->
  	<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
 	<script>
 	/* globals $ */
-	var oldEasing = $.easing;
+	window.oldEasing = $.easing;
 	</script>
 	<style media="screen">
 	#bounds {
@@ -36,33 +35,33 @@
 	</style>
 
 	<script>
-/* globals $ */
+/* globals $, oldEasing, newEasing */
 $(function() {
-	var times = [
+	const times = [
 		0, 0.09, 0.15, 0.24, 0.37, 0.43, 0.50,
 		0.58, 0.64, 0.76, 0.89, 0.92, 0.98, 1
 	];
 
 	$.each( oldEasing, function( name ) {
-		var oldfn = oldEasing[ name ],
+		const oldfn = oldEasing[ name ],
 			newfn = newEasing[ name ];
 
-		if ( typeof oldfn !== "function" || name === "swing" || name === "jswing" ) {
+		if ( typeof oldfn !== 'function' || name === 'swing' || name === 'jswing' ) {
 			return;
 		}
-		$( "#results").append( "<br />--- Testing " + name + " " );
+		$( '#results').append( `<br />--- Testing ${ name } ` );
 		try {
 			times.forEach( function( time ) {
-				var ov = oldfn(time, time*1000, 0, 1, 1000),
+				const ov = oldfn(time, time*1000, 0, 1, 1000),
 					nv = newfn(time),
 					diff = Math.abs(ov - nv);
 				if (	Number.isNaN(diff) || diff > 0.001 ) {
-					$( "#results").append("<br />at " + time + ": old " + ov + " new " + nv	);
+					$( '#results').append(`<br />at ${ time }: old ${ ov } new ${ nv }`	);
 				}
 			});
-			$( "#results").append( "Done" );
+			$( '#results').append( 'Done' );
 		} catch ( err ) {
-			$( "#results").append( err );
+			$( '#results').append( err );
 		}
 	});
 });

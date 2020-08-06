@@ -11,7 +11,7 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: '.eslintrc.js',
+			files: ['.eslintrc.js', 'example/node.js'],
 			env: {
 				node: true
 			},
@@ -36,11 +36,26 @@ module.exports = {
 			globals: {
 				require: 'readonly',
 				define: 'readonly'
+			},
+			rules: {
+				'no-unused-vars': ['error', {
+					varsIgnorePattern: '$'
+				}]
 			}
 		}
 	],
 	rules: {
 		indent: ['error', 'tab'],
-		semi: ['error']
+		semi: ['error'],
+
+		'prefer-const': ['error'],
+		'no-var': ['error'],
+		'prefer-destructuring': ['error'],
+		'object-shorthand': ['error'],
+		'object-curly-spacing': ['error', 'always'],
+		quotes: ['error', 'single'],
+		'quote-props': ['error', 'as-needed'],
+		'brace-style': ['error', '1tbs'],
+		'prefer-template': ['error']
 	}
 };
