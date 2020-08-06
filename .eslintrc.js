@@ -6,11 +6,17 @@ module.exports = {
 	env: {
 		es6: true
 	},
+	parserOptions: {
+		sourceType: 'module'
+	},
 	overrides: [
 		{
 			files: '.eslintrc.js',
 			env: {
 				node: true
+			},
+			parserOptions: {
+				sourceType: 'script'
 			},
 			rules: {
 				strict: ['error']
@@ -20,7 +26,10 @@ module.exports = {
 			files: 'example/**',
 			env: {
 				browser: true
-			}
+			},
+			parserOptions: {
+				sourceType: 'script'
+			},
 		},
 		{
 			files: '*.md',
