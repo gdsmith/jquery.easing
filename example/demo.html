@@ -24,40 +24,40 @@
 	<script>
 /* globals $ */
 $(function() {
-	var easings = $.map( $.easing, function( fn, key ) {
+	let current = 0;
+	const easings = $.map( $.easing, function( fn, key ) {
 			return $.isFunction( fn ) ?
-				"<option value='" + key + "'>" + key + "</option>" :
+				`<option value='${ key }'>${ key }</option>` :
 				null;
 		}),
-		current = 0,
 		positions = [
 			{
-				marginTop: "0px",
-				marginLeft: "0px"
+				marginTop: '0px',
+				marginLeft: '0px'
 			}, {
-				marginTop: "200px",
-				marginLeft: "200px"
+				marginTop: '200px',
+				marginLeft: '200px'
 			}
 		];
 
-	$( "#easing" ).html( easings );
-	$( "#run" ).on( "click", function() {
-		var duration = +$( "#duration" ).val(),
-			easing = $( "#easing" ).val(),
+	$( '#easing' ).html( easings );
+	$( '#run' ).on( 'click', function() {
+		let duration = +$( '#duration' ).val();
+		const easing = $( '#easing' ).val(),
 			start = Date.now();
 
 		if ( Number.isNaN( duration ) ) {
 			duration = 1000;
-			$( "#duration" ).val( duration );
+			$( '#duration' ).val( duration );
 		}
 
-		$( "#status" ).text( "Animating..." );
+		$( '#status' ).text( 'Animating...' );
 
 		// Alternate positions
 		current = current ^ 1;
-		$( "#box" ).animate( positions[current], duration, easing,
+		$( '#box' ).animate( positions[current], duration, easing,
 			function() {
-				$( "#status" ).text( "Done (" + (Date.now() - start)/1000	 + " seconds)" );
+				$( '#status' ).text( `Done (${ (Date.now() - start)/1000 } seconds)` );
 			}
 		);
 	});

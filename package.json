@@ -3,6 +3,7 @@
   "version": "1.4.1",
   "homepage": "https://github.com/gdsmith/jquery.easing",
   "description": "A jQuery plugin from GSGD to give advanced easing options",
+  "type": "commonjs",
   "author": {
     "name": "George McGinley Smith",
     "email": "george@gsgd.co.uk",
@@ -18,7 +19,13 @@
   "bugs": {
     "url": "https://github.com/gdsmith/jquery.easing/issues"
   },
-  "main": "jquery.easing.js",
+  "main": "addJQueryEasing.js",
+  "exports": {
+    "import": "./src/addJQueryEasing.js",
+    "require": "./addJQueryEasing.js"
+  },
+  "browser": "jquery.easing.min.js",
+  "module": "src/jquery.easing.mjs",
   "directories": {
     "example": "example"
   },
@@ -26,19 +33,24 @@
     "open": "open-cli http://localhost:5000/example && npm start",
     "start": "serve",
     "lint": "eslint --report-unused-disable-directives --ext=js,md,html .",
-    "test": "echo \"Use tests in the examples directory\" && exit 1",
-    "build": "uglifyjs jquery.easing.js --compress --mangle -o jquery.easing.min.js"
+    "build": "rollup -c",
+    "test": "echo \"Use tests in the examples directory; for browser demos, use `npm start` or `npm run open`\" && exit 1"
   },
   "engines": {},
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@rollup/plugin-babel": "^5.1.0",
     "eslint": "^7.6.0",
     "eslint-plugin-html": "^6.0.2",
     "eslint-plugin-markdown": "^1.0.2",
-    "jquery": ">=1.3.0",
+    "jquery": "^3.5.1",
+    "jsdom": "^16.3.0",
     "open-cli": "^6.0.1",
-    "serve": "^11.3.2",
-    "uglify-js": "^2.6.2"
+    "rollup": "^2.23.0",
+    "rollup-plugin-terser": "^6.1.0",
+    "serve": "^11.3.2"
   },
   "keywords": [
     "jquery-plugin",
